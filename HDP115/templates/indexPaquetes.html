@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Paquetes Alimentarios{% endblock titulo %}</title>
+</head>
+<body>{% block cuerpo %}
+    <h1>Paquetes Alimentarios</h1>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Id Administrador</th>
+                <th>Fecha de Expedición</th>
+                <th>Fecha de Caducidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paquetes in paquetes  %}
+                <tr>
+                    <th>{{ paquetes.codigo }}</th>
+                    <th>{{ paquetes.idAdministrador }}</th>
+                    <th>{{ paquetes.fechaDeExpedicion }}</th>
+                    <th>{{ paquetes.fechaDeCaducidad }}</th>
+                    <td><a href="{% url 'eliminarPaquete' paquetes.codigo %}">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock cuerpo %}   
+</body>
+</html>

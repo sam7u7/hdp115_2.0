@@ -1,0 +1,11 @@
+{% extends 'indexPaquetes.html' %}
+{% block titulo %}Crear Paquete Alimentario{% endblock titulo %}
+
+{% block cuerpo %}
+<h1>Crear Paquetes Alimentarios</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">CREAR</button>
+    </form>
+{% endblock cuerpo %}

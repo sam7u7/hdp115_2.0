@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {%block titulo%} Listado de asignaciones {% endblock titulo %}</title>
+</head>
+<body>
+    {% block cuerpo %}
+    <h1>template de asignaciones</h1>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Comprobante</th>
+                <th>Id Administrador</th>
+                <th>Id Usuario</th>
+                <th>Id Zona</th>
+                <th>Cantidad</th>
+                <th>Fecha de asignación</th>
+                <th>Opcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for asignaciones in asignaciones %}
+                <tr>
+                    <td>{{asignaciones.comprobante}}</td>
+                    <td>{{asignaciones.idAdmistrador}}</td>
+                    <td>{{asignaciones.idUsuario}}</td>
+                    <td>{{asignaciones.codigoZona}}</td>
+                    <td>{{asignaciones.cantidad}}</td>
+                    <td>{{asignaciones.fechaDeAsignacion}}</td>
+                    <td><a href="{%url 'eliminarAsignacion' asignacion.comprobante %}">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock cuerpo %} 
+</body>
+</html>
