@@ -16,19 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from asignaciones.views import asignacionIndex, crearAsignacion, eliminarAsignacion
-from paquetesAlimentarios.views import indexPaquetes, crearPaquete, eliminarPaquete
+from paquetesAlimentarios.views import indexPaquetes, crearPaquete, eliminar, elimiarPaquetesIndex
 from principal import views 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.index),
+    path('',views.index, name='index'),
     path('asignasion/index/',asignacionIndex, name='indexAsignacion'),
     path('asignasion/crear/',crearAsignacion,name='crearAsignacion'),
     path('paquetes/MostrarPaquetes',indexPaquetes,name='indexPaquetes'),
     path('paquetes/MostrarPaquetes/CrearPaquetes', crearPaquete, name='crearPaquete'),
-    path('paquetes/MostrarPaquetes/<int:codigo>',eliminarPaquete,name='eliminarPaquete'),
-    path('asignasion/eliminar/<int:id>/',eliminarAsignacion,name = 'eliminarAsignacion')
+    path('asignasion/eliminar/<int:id>/',eliminarAsignacion,name = 'eliminarAsignacion'),
+    path('paquetes/MostrarPaquetes/<int:codigo>',eliminar,name='eliminarPaquete'),
+    path('paquetes/MostrarPaquetes/eliminarPaquetes',elimiarPaquetesIndex,name='eliminarPaqueteIndex')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

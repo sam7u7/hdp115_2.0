@@ -12,20 +12,33 @@ class persona(models.Model):
     correoElectronico = models.EmailField(max_length=254)
     rol = models.IntegerField()
 
+    def __str__(self):
+        return str(self.nombre) 
+
 class usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True)
     idpersona = models.ForeignKey(persona, on_delete=models.CASCADE)
     contrasena = models.CharField(max_length=50)
+
+    def __str__(self):
+        return str(self.idUsuario)
 
 class administrador(models.Model):
     idAdministrador = models.AutoField(primary_key=True)
     idpersona = models.ForeignKey(persona, on_delete=models.CASCADE)
     contrasena = models.CharField(max_length=50)
 
+    def __str__(self):
+        return str(self.idAdministrador)
+
+
 class zona(models.Model):
     codigoZona = models.AutoField(primary_key=True)
     departamento = models.CharField(max_length=50)
     municipio = models.CharField(max_length=50,unique=True)
+
+    def __str__(self):
+        return str(self.codigoZona)
 
 class asignacion(models.Model):
     idcomprobante = models.AutoField(primary_key=True)
@@ -35,9 +48,15 @@ class asignacion(models.Model):
     cantidad = models.IntegerField()
     fechaDeAsignacion = models.DateField()
 
+    def __str__(self):
+        return str(self.comprobante)
+
 
 class paqueteAlimentario(models.Model):
     codigo = models.AutoField(primary_key=True)
     idAdministrador = models.ForeignKey(administrador, on_delete=models.CASCADE)
     fechaDeExpedicion = models.DateField()
     fechaDeCaducidad = models.DateField()
+
+    def __str__(self):
+        return str(self.codigo) 

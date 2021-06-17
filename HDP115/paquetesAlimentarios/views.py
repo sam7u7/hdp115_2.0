@@ -27,7 +27,14 @@ def crearPaquete(request):
             return redirect('indexPaquetes')
     return render(request, 'crearPaquete.html', contexto)
 
-def eliminarPaquete(request, codigo):
+def eliminar(request, codigo):
     paquetes = paqueteAlimentario.objects.get(codigo = codigo)
     paquetes.delete()
-    return redirect('indexPaquetes')
+    return redirect('eliminarPaqueteIndex')
+
+def elimiarPaquetesIndex(request):
+    paquetes = paqueteAlimentario.objects.all()
+    contexto ={
+        'paquetes':paquetes
+    }
+    return render(request,'eliminarPaquete.html',contexto)

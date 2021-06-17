@@ -1,11 +1,14 @@
-{% extends 'indexPaquetes.html' %}
-{% block titulo %}Crear Paquete Alimentario{% endblock titulo %}
-
+{% extends 'index.html' %}
+<!-- Titulo de la pestaña -->
+{% block titulo %}Paquetes Alimentarios{% endblock titulo %}
+<!-- Nombre -->
+{% block nombre %}Paquetes Alimentarios{% endblock nombre %}
+<!-- Cuerpo -->
 {% block cuerpo %}
 <h1>Crear Paquetes Alimentarios</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">CREAR</button>
+        <button class="boton" type="submit">Crear</button>
     </form>
 {% endblock cuerpo %}
