@@ -65,3 +65,11 @@ def registro(request):
         form = UserCreationForm()
     contexto= {'form': form}
     return render(request, 'registroUsuarios.html', contexto)
+
+#creamos nuestra funcion para la lista de usuarios
+def inicioUsuarios(request):
+    usuarios = usuario.objects.all()
+    contexto = {
+        'usuarios': usuarios,
+    }
+    return render(request, 'indexUsuarios.html', contexto)

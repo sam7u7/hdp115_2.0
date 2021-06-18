@@ -36,7 +36,8 @@ urlpatterns = [
     path('persona/crear/', crearPersona, name='crearPersona'),
     path('persona/editar/<int:idpersona>/', editarPersona, name='editarPersona'),
     path('persona/eliminar/<int:idpersona>', eliminarPersona, name='eliminarPersona'),
-    path('usuario/registrar', registro, name='registroUsuarios')
+    path('usuario/registrar', registro, name='registroUsuarios'),
+    path('usuario/index', inicioUsuarios, name='indexUsuarios')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

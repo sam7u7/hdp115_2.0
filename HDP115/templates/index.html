@@ -20,7 +20,7 @@
                 
                 <div class="sidebar-heading border-bottom bg-light">{% block nombre %}Distribución de Paquetes Alimentarios{% endblock nombre %}<img src="{% static 'img/logo.png'%}" width="50px" height="50px"/></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Usuarios</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'indexUsuarios' %}">Usuarios</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'indexAsignacion' %}">Asignaciones</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'indexPaquetes' %}">Paquetes Alimentarios</a>
                 </div>
