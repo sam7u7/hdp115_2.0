@@ -17,7 +17,7 @@ def crearPaquete(request):
         contexto ={
             'form':form
         }
-    else:
+    else: 
         form = PaqueteForms(request.POST)
         contexto ={
             'form':form
