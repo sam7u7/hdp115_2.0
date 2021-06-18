@@ -1,0 +1,10 @@
+{% extends 'indexPersonas.html' %}
+{% block titulo %} Formulario de Personas {%endblock titulo%}
+{% block cuerpo %}
+<form method="post">
+    {%csrf_token%} 
+   {{form.as_p}}
+   <button>CREAR</button>
+</form>
+
+{% endblock cuerpo %}
