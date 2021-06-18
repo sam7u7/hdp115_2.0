@@ -19,6 +19,7 @@ from asignaciones.views import asignacionIndex, crearAsignacion, eliminarAsignac
 from paquetesAlimentarios.views import indexPaquetes, crearPaquete, eliminar, elimiarPaquetesIndex
 from principal import views 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from usuario.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +31,12 @@ urlpatterns = [
     path('asignasion/eliminar/<int:id>/',eliminarAsignacion,name = 'eliminar'),
     path('asignacion/eliminarPaquetes',eliminarAsignacionIndex,name= 'eliminarAsignacionIndex'),
     path('paquetes/MostrarPaquetes/<int:codigo>',eliminar,name='eliminarPaquete'),
-    path('paquetes/MostrarPaquetes/eliminarPaquetes',elimiarPaquetesIndex,name='eliminarPaqueteIndex')
+    path('paquetes/MostrarPaquetes/eliminarPaquetes',elimiarPaquetesIndex,name='eliminarPaqueteIndex'),
+    path('persona/index/', inicioPersona, name = 'indexPersonas'),
+    path('persona/crear/', crearPersona, name='crearPersona'),
+    path('persona/editar/<int:idpersona>/', editarPersona, name='editarPersona'),
+    path('persona/eliminar/<int:idpersona>', eliminarPersona, name='eliminarPersona'),
+    path('usuario/registrar', registro, name='registroUsuarios')
 ]
 
 urlpatterns += staticfiles_urlpatterns()

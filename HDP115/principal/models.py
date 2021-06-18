@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class persona(models.Model):
-    idpersona = models.AutoField(primary_key=True)
+    idpersona  = models.AutoField(primary_key=True)
     dui = models.CharField(max_length=9,unique=True)
     nombre = models.CharField(max_length= 50)
     apellido = models.CharField(max_length=50)
