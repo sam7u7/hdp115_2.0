@@ -1,4 +1,5 @@
 from django import forms
+from django.db.models.deletion import CASCADE
 from django.shortcuts import redirect, render
 from principal.models import asignacion 
 from .form import  asignacionForm
@@ -28,7 +29,14 @@ def crearAsignacion(request):
     return render(request,'crearAsignacion.html',contexto)
 
 def eliminarAsignacion(request,id):
-    asigna = asignacion.objects.get(id=id)
+    asigna = asignacion.objects.get(idcomprobante=id)
     asigna.delete()
     return redirect('indexAsignacion')
+
+def eliminarAsignacionIndex(request):
+    asignaciones = asignacion.objects.all()
+    contexto = {
+        'asignaciones':asignaciones
+    }
+    return render(request,'eliminarAsignacion.html',contexto)
     

@@ -1,11 +1,15 @@
 
-{% extends 'indexAsignacion.html' %}
-{% block titulo%} Formulario para crear asignaciones {%endblock titulo%}
+{% extends 'index.html' %}
+<!-- Titulo de la pestaña -->
+{% block titulo %}Paquetes Alimentarios{% endblock titulo %}
+<!-- Nombre -->
+{% block nombre %}Paquetes Alimentarios{% endblock nombre %}
+<!-- Cuerpo -->
 {% block cuerpo %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Crear</button>
-</form>
-
+<h1>Crear Asignacion de paquetes alimentarios</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="boton" type="submit">Crear</button>
+    </form>
 {% endblock cuerpo %}

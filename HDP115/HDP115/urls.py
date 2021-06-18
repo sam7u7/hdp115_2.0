@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from asignaciones.views import asignacionIndex, crearAsignacion, eliminarAsignacion
+from asignaciones.views import asignacionIndex, crearAsignacion, eliminarAsignacion,eliminarAsignacionIndex
 from paquetesAlimentarios.views import indexPaquetes, crearPaquete, eliminar, elimiarPaquetesIndex
 from principal import views 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -28,7 +28,8 @@ urlpatterns = [
     path('asignasion/crear/',crearAsignacion,name='crearAsignacion'),
     path('paquetes/MostrarPaquetes',indexPaquetes,name='indexPaquetes'),
     path('paquetes/MostrarPaquetes/CrearPaquetes', crearPaquete, name='crearPaquete'),
-    path('asignasion/eliminar/<int:id>/',eliminarAsignacion,name = 'eliminarAsignacion'),
+    path('asignasion/eliminar/<int:id>/',eliminarAsignacion,name = 'eliminar'),
+    path('asignacion/eliminarPaquetes',eliminarAsignacionIndex,name= 'eliminarAsignacionIndex'),
     path('paquetes/MostrarPaquetes/<int:codigo>',eliminar,name='eliminarPaquete'),
     path('paquetes/MostrarPaquetes/eliminarPaquetes',elimiarPaquetesIndex,name='eliminarPaqueteIndex'),
     path('persona/index/', inicioPersona, name = 'indexPersonas'),

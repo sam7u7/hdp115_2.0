@@ -49,7 +49,8 @@ class asignacion(models.Model):
     fechaDeAsignacion = models.DateField()
 
     def __str__(self):
-        return str(self.comprobante)
+        return str(self.idcomprobante)
+    
 
 
 class paqueteAlimentario(models.Model):
