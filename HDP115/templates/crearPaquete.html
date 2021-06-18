@@ -5,7 +5,9 @@
 {% block nombre %}Paquetes Alimentarios{% endblock nombre %}
 <!-- Cuerpo -->
 {% block cuerpo %}
+
 <h1>Crear Paquetes Alimentarios</h1>
+    
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
