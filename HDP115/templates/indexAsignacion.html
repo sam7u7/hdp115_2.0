@@ -25,13 +25,13 @@
         <tbody>
             {% for asignaciones in asignaciones %}
                 <tr>
-                    <td>{{asignaciones.comprobante}}</td>
+                    <td>{{asignaciones.idcomprobante}}</td>
                     <td>{{asignaciones.idAdmistrador}}</td>
                     <td>{{asignaciones.idUsuario}}</td>
                     <td>{{asignaciones.codigoZona}}</td>
                     <td>{{asignaciones.cantidad}}</td>
                     <td>{{asignaciones.fechaDeAsignacion}}</td>
-                    <td><a href="{%url 'eliminarAsignacion' asignacion.comprobante %}">Eliminar</a></td>
+                    <td><a href="{% url 'eliminarAsignacion' asignaciones.idcomprobante %}">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </tbody>
