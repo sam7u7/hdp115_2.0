@@ -10888,7 +10888,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     opacity: 0.6;
     text-decoration: none;
   }
-tablas {
+.tablas {
   border: 2px solid #000;
 }
 th, td {
