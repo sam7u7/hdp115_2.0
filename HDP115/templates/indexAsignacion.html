@@ -1,41 +1,32 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {%block titulo%} Listado de asignaciones {% endblock titulo %}</title>
-</head>
-<body>
-    {% block cuerpo %}
-    <h1>template de asignaciones</h1>
-    <table border="2">
+{% extends 'index.html' %}
+<!-- Titulo de la pestaña -->
+{% block titulo %}Asignacion de paquetes alimentarios{% endblock titulo %}
+<!-- Nombre -->
+{% block nombre %}Paquetes Alimentarios{% endblock nombre %}
+<!-- Cuerpo -->
+{% block cuerpo %}
+    <h1>Paquetes Alimentarios</h1>
+    <table class="tablas">   
         <thead>
             <tr>
-                <th>Comprobante</th>
-                <th>Id Administrador</th>
-                <th>Id Usuario</th>
-                <th>Id Zona</th>
-                <th>Cantidad</th>
-                <th>Fecha de asignación</th>
-                <th>Opcion</th>
+                <th>Numero de Comprobante</th>
+                <th>Codigo de Zona </th>
+                <th>Fecha de asignacion</th>
             </tr>
         </thead>
         <tbody>
             {% for asignaciones in asignaciones %}
                 <tr>
-                    <td>{{asignaciones.idcomprobante}}</td>
-                    <td>{{asignaciones.idAdmistrador}}</td>
-                    <td>{{asignaciones.idUsuario}}</td>
-                    <td>{{asignaciones.codigoZona}}</td>
-                    <td>{{asignaciones.cantidad}}</td>
-                    <td>{{asignaciones.fechaDeAsignacion}}</td>
-                    <td><a href="{% url 'eliminarAsignacion' asignaciones.idcomprobante %}">Eliminar</a></td>
+                    <td>{{asignaciones.idcomprobante }}</td>
+                    <td>{{asignaciones.codigoZona }}</td>
+                    <td>{{asignaciones.fechaDeAsignacion }}</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    {% endblock cuerpo %} 
-</body>
-</html>
+    <br>
+    <a class="boton" href="{% url 'crearAsignacion' %}">Nuevo</a>
+    <a class="boton" href="{% url 'eliminarAsignacionIndex' %}">Eliminar</a>  
+{% endblock cuerpo %}
+

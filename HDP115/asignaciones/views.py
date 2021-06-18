@@ -32,4 +32,11 @@ def eliminarAsignacion(request,id):
     asigna = asignacion.objects.get(idcomprobante=id)
     asigna.delete()
     return redirect('indexAsignacion')
+
+def eliminarAsignacionIndex(request):
+    asignaciones = asignacion.objects.all()
+    contexto = {
+        'asignaciones':asignaciones
+    }
+    return render(request,'eliminarAsignacion.html',contexto)
     
