@@ -15,7 +15,7 @@ class persona(models.Model):
     rol = models.IntegerField(default=1, validators=[MaxValueValidator(2),MinValueValidator(1)])
 
     def __str__(self):
-        return str(self.nombre) 
+        return str(self.idpersona) 
 
 class usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True)

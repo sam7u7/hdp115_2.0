@@ -1,7 +1,8 @@
+from django.contrib.auth import forms
 from django.shortcuts import render, redirect
 from principal.models import *
 from django.http import request
-from .forms import PersonaForm
+from .forms import AdminForm, PersonaForm, UsuarioForm
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -25,11 +26,25 @@ def crearPersona(request):
         contexto = {
             'form': form
         }
-        if form.is_valid():
-            form.save()
-            return redirect('crearPersona')
+        if form.is_valid():            
+            data = form.instance.rol
+            
+            if data == 1:
+                form.save() 
+                return redirect('crearAdmin') 
+            else:
+                form.save() 
+                return redirect('crearUsuario')  
+                    
     return render(request,'crearPersona.html', contexto)
 
+#Mostrar personas A editar
+def indexEditarPersona(request):
+    personas = persona.objects.all()
+    contexto = {
+        'personas': personas
+    }
+    return render(request, 'indexEditarPersonas.html', contexto)
 
 #creamos nuestra funcion para editar
 def editarPersona(request, idpersona):
@@ -50,13 +65,19 @@ def editarPersona(request, idpersona):
             return render(request, 'indexPersonas.html', contexto)
     return render(request, 'crearPersona.html', contexto)
 
-
+#Mostrar personas A eliminar
+def indexEliminarPersona(request):
+    personas = persona.objects.all()
+    contexto = {
+        'personas': personas
+    }
+    return render(request, 'indexEliminarPersonas.html', contexto)
 
 #definimos la funcion de eliminar
 def eliminarPersona(request, idpersona):
     personas = persona.objects.get(idpersona = idpersona)
     personas.delete()
-    return redirect ('indexPersonas')
+    return redirect ('indexEliminarPersona')
 
 ##
 def registro(request):
@@ -76,4 +97,40 @@ def inicioUsuarios(request):
     contexto = {
         'usuarios': usuarios,
     }
-    return render(request, 'indexUsuarios.html', contexto)
+    return render(request, 'indexUsuarios.html', contexto)   
+
+#creamos nuestra funcion para crear un nuevo Usuario
+def crearUsuario(request):
+    if request.method == 'GET':
+        form2 = UsuarioForm()
+        contexto={
+            'form2' : form2
+        }      
+    else:
+        form2 = UsuarioForm(request.POST)
+        contexto={
+            'form2' : form2
+        }
+        if form2.is_valid():
+            form2.save()
+            return redirect('indexPersonas')
+                    
+    return render(request,'crearUsuario.html', contexto)
+
+#creamos nuestra funcion para crear un nuevo Administrador
+def crearAdmin(request):
+    if request.method == 'GET':
+        form3 = AdminForm()
+        contexto={
+            'form3' : form3
+        }      
+    else:
+        form3 = AdminForm(request.POST)
+        contexto={
+            'form3' : form3
+        }
+        if form3.is_valid():
+            form3.save()
+            return redirect('indexPersonas')
+                    
+    return render(request,'crearAdministrador.html', contexto)

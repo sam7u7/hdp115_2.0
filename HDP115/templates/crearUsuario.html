@@ -5,14 +5,12 @@
 {% block nombre %}Crear Personas{% endblock nombre %}
 <!-- Cuerpo -->
 {% block cuerpo %}
-<h1>Formulario Crear Persona</h1>
+<h1>Formulario Crear Usuario</h1>
 <form method="post">
     {%csrf_token%} 
-   {{form.as_p}}
+    {{form2.as_p}}
 
-   <button>Aceptar</button>
+   <button>Crear</button>
 </form>
 <br>
-<a class="boton" href="{% url 'indexPersonas' %}">Volver</a>
-
 {% endblock cuerpo %}

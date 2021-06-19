@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from asignaciones.views import asignacionIndex, crearAsignacion, eliminarAsignacion,eliminarAsignacionIndex
-from paquetesAlimentarios.views import indexPaquetes, crearPaquete, eliminar, elimiarPaquetesIndex
+from asignaciones.views import *
+from paquetesAlimentarios.views import *
 from principal import views 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from usuario.views import *
@@ -29,16 +29,20 @@ urlpatterns = [
     path('',views.index, name='index'),
     path('asignasion/index/',asignacionIndex, name='indexAsignacion'),
     path('asignasion/crear/',crearAsignacion,name='crearAsignacion'),
-    path('paquetes/index',indexPaquetes,name='indexPaquetes'),
-    path('paquetes/CrearPaquetes', crearPaquete, name='crearPaquete'),
+    path('paquetes/index/',indexPaquetes,name='indexPaquetes'),
+    path('paquetes/CrearPaquetes/', crearPaquete, name='crearPaquete'),
     path('asignasion/eliminar/<int:id>/',eliminarAsignacion,name = 'eliminar'),
     path('asignacion/eliminarPaquetes',eliminarAsignacionIndex,name= 'eliminarAsignacionIndex'),
     path('paquetes/eliminarPaquetes/<int:codigo>',eliminar,name='eliminarPaquete'),
     path('paquetes/eliminar',elimiarPaquetesIndex,name='eliminarPaqueteIndex'),
     path('persona/index/', inicioPersona, name = 'indexPersonas'),
     path('persona/crear/', crearPersona, name='crearPersona'),
+    path('persona/indexEditar', indexEditarPersona, name='indexEditarPersona'),
     path('persona/editar/<int:idpersona>/', editarPersona, name='editarPersona'),
-    path('persona/eliminar/<int:idpersona>', eliminarPersona, name='eliminarPersona'),
+    path('persona/indexEliminar', indexEliminarPersona, name='indexEliminarPersona'),
+    path('persona/eliminar/<int:idpersona>/', eliminarPersona, name='eliminarPersona'),
+    path('persona/crearUsuario/',crearUsuario,name='crearUsuario'),
+    path('persona/crearAdmin/', crearAdmin, name='crearAdmin'),
     path('usuario/registrar', registro, name='registroUsuarios'),
     path('login/register',register, name = 'registroUsuarios'),
     path('login', LoginView.as_view(template_name='login.html'), name='login'),

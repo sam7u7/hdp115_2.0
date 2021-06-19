@@ -6,14 +6,18 @@
 <!-- Cuerpo -->
 {% block cuerpo %}
     <body>
-        <h1>Listado de Personas</h1>
+        <h1>Listado de Personas a Eliminar</h1>
         <table class="tablas">
             <thead>
                 <th>IDpersona</th>
                 <th>DUI</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
+                <th>Genero</th>
+                <th>Numero</th>
+                <th>Correo</th>
                 <th>Rol</th>
+                <th>OPCIONES</th>
             </thead>
             <tbody>
 
@@ -23,14 +27,16 @@
                     <td>{{persona.dui}}</td>
                     <td>{{persona.nombre}}</td>
                     <td>{{persona.apellido}}</td>
+                    <td>{{persona.genero}}</td>
+                    <td>{{persona.numeroTelefono}}</td>
+                    <td>{{persona.correoElectronico}}</td>
                     <td>{{persona.rol}}</td>
+                    <td><a href="{% url 'eliminarPersona' persona.idpersona %}">Eliminar </a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <br>
-        <a class="boton" href="{% url 'crearPersona' %}">Nuevo</a>
-        <a class="boton" href="{% url 'indexEditarPersona' %}">Editar</a>
-        <a class="boton" href="{% url 'indexEliminarPersona' %}">Eliminar</a>
+        <a class="boton" href="{% url 'indexPersonas' %}">Volver</a>
     </body>
 {% endblock cuerpo %}
