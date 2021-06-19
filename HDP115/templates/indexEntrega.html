@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+<!-- Titulo de la pestaña -->
+{% block titulo %}Entrega de Paquetes{% endblock titulo %}
+<!-- Nombre -->
+{% block nombre %}Entrega de Paquetes{% endblock nombre %}
+<!-- Cuerpo -->
+{% block cuerpo %}
+
+<h1>Entrega de los Paquetes</h1>
+
+    <table class="tablas">
+        <thead>
+            <tr>
+                <th>Departamento</th>
+                <th>DUI</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Direccion</th>
+                <th>Estado</th>
+                <th>Entregar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entregarPaquetes in entregarPaquetes %}
+                <tr>
+                    <th>{{ entregarPaquetes.departamento }}</th>
+                    <th>{{ entregarPaquetes.dui }}</th>
+                    <th>{{ entregarPaquetes.nombre }}</th>
+                    <th>{{ entregarPaquetes.apellido }}</th>
+                    <th>{{ entregarPaquetes.direccion }}</th>
+                    <!--th><input type="checkbox"></th-->
+                    {% if entregarPaquetes.estado %}
+                        <th>Entregado</th>
+                    {% else %}
+                        <th>No Entregado</th>
+                    {% endif %}
+                    <td><a href="{% url 'entregarPaquete' entregarPaquetes.idEntrega %}">Entregar</a></td>
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock cuerpo %}
