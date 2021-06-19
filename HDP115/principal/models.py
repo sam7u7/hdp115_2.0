@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.signals import ModelSignal
 
 # Create your models here.
 
@@ -61,3 +62,12 @@ class paqueteAlimentario(models.Model):
 
     def __str__(self):
         return str(self.codigo) 
+
+class entregaPaquete(models.Model):
+    idEntrega = models.AutoField(primary_key=True)
+    departamento = models.CharField(max_length=50)
+    dui = models.CharField(max_length=9,unique=True)
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=100)
+    estado = models.BooleanField(default = False)
