@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+<!-- Titulo de la pestaña -->
+{% block titulo %}Paquetes Alimentarios{% endblock titulo %}
+<!-- Nombre -->
+{% block nombre %}Paquetes Alimentarios{% endblock nombre %}
+<!-- Cuerpo -->
+{% block cuerpo %}
+
+<h1>Registrar usuario</h1>
+    <form class="container-fluid" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="boton" type="submit">Registrarse</button>
+    </form>
+{% endblock cuerpo %}

@@ -20,9 +20,15 @@
                 
                 <div class="sidebar-heading border-bottom bg-light">{% block nombre %}Distribución de Paquetes Alimentarios{% endblock nombre %}<img src="{% static 'img/logo.png'%}" width="50px" height="50px"/></div>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'indexUsuarios' %}">Usuarios</a>
+                    {%if perms.usuario.view_usuario %}
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'indexPersonas' %}">Usuarios</a>
+                    {% endif %}
+                    {%if perms.asignaciones.view_asignacion %}
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'indexAsignacion' %}">Asignaciones</a>
+                    {% endif %}
+                    {%if perms.paquetesAlimentarios.view_paqueteAlimentario %}
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'indexPaquetes' %}">Paquetes Alimentarios</a>
+                    {% endif %}
                 </div>
             </div>
             <!-- Page content wrapper-->
@@ -36,12 +42,25 @@
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <img src="{% static 'img/logoUes.jpg'%}" width="70px" height="70px"/>
                                 <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
+                                {% if user.is_authenticated%}
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a></li>
+                                {% else %}
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
                 </nav>
                 <!-- Page content-->
                 <div class="container-fluid">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class = "notifications {{message.tags}}">
+                                {{ message }}
+                            </div>
+
+                        {% endfor%}
+                    {% endif %}
                     {% block cuerpo %}
                     <h1>Distribucion de Paquetes Alimentarios</h1>
                     <p>Esta Aplicacion fue creada con la finalidad de crear y administrar la distribución de los paquetes alimentarios en el pais de El Salvador, </p>
