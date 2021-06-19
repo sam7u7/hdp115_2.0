@@ -1,5 +1,9 @@
-{% extends 'indexPersonas.html' %}
-{% block titulo %} Registro de Usuarios {%endblock titulo%}
+{% extends 'index.html' %}
+<!-- Titulo de la pestaña -->
+{% block titulo %}Registrar Usuarios{% endblock titulo %}
+<!-- Nombre -->
+{% block nombre %}Registrar Usuarios{% endblock nombre %}
+<!-- Cuerpo -->
 {% block cuerpo %}
 <form class = "form" method="post">
     {%csrf_token%} 

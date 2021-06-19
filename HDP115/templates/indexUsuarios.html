@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+<!-- Titulo de la pestaña -->
+{% block titulo %}Usuarios{% endblock titulo %}
+<!-- Nombre -->
+{% block nombre %}Lista de Usuarios{% endblock nombre %}
+<!-- Cuerpo -->
+{% block cuerpo %}
+    <body>
+        <h1>Listado de Usuarios</h1>
+        <table class="tablas">
+            <thead>
+                <th>Id Usuario</th>
+                <th>Nombre</th>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{usuario.idUsuario}}</td>
+                    <td>{{usuario.idpersona}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+{% endblock cuerpo %}

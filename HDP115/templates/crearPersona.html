@@ -1,5 +1,9 @@
-{% extends 'indexPersonas.html' %}
-{% block titulo %} Formulario de Personas {%endblock titulo%}
+{% extends 'index.html' %}
+<!-- Titulo de la pestaña -->
+{% block titulo %}Crear Personas{% endblock titulo %}
+<!-- Nombre -->
+{% block nombre %}Crear Personas{% endblock nombre %}
+<!-- Cuerpo -->
 {% block cuerpo %}
 <form method="post">
     {%csrf_token%} 
