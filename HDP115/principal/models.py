@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models.signals import ModelSignal
 
 # Create your models here.
 
@@ -10,7 +12,7 @@ class persona(models.Model):
     genero = models.CharField(max_length=1)
     numeroTelefono = models.CharField(max_length=50)
     correoElectronico = models.EmailField(max_length=254)
-    rol = models.IntegerField()
+    rol = models.IntegerField(default=1, validators=[MaxValueValidator(2),MinValueValidator(1)])
 
     def __str__(self):
         return str(self.nombre) 
@@ -61,3 +63,12 @@ class paqueteAlimentario(models.Model):
 
     def __str__(self):
         return str(self.codigo) 
+
+class entregaPaquete(models.Model):
+    idEntrega = models.AutoField(primary_key=True)
+    departamento = models.CharField(max_length=50)
+    dui = models.CharField(max_length=9,unique=True)
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=100)
+    estado = models.BooleanField(default = False)

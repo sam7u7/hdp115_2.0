@@ -41,9 +41,13 @@ def editarPersona(request, idpersona):
         }
     else:
         form = PersonaForm(request.POST, instance=personas)
+        personas = persona.objects.all()
+        contexto = {
+            'personas': personas
+        }
         if form.is_valid():
             form.save()
-            return redirect('indexPersonas.html')
+            return render(request, 'indexPersonas.html', contexto)
     return render(request, 'crearPersona.html', contexto)
 
 
