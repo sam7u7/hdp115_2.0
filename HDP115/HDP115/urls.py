@@ -20,6 +20,8 @@ from paquetesAlimentarios.views import indexPaquetes, crearPaquete, eliminar, el
 from principal import views 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from usuario.views import *
+from login.views import *
+from django.contrib.auth.views import LoginView,LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,7 +38,10 @@ urlpatterns = [
     path('persona/crear/', crearPersona, name='crearPersona'),
     path('persona/editar/<int:idpersona>/', editarPersona, name='editarPersona'),
     path('persona/eliminar/<int:idpersona>', eliminarPersona, name='eliminarPersona'),
-    path('usuario/registrar', registro, name='registroUsuarios')
+    path('usuario/registrar', registro, name='registroUsuarios'),
+    path('login/register',register, name = 'registroUsuarios'),
+    path('login', LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout', LogoutView.as_view(template_name='logout.html'), name='logout')
 ]
 
 urlpatterns += staticfiles_urlpatterns()
