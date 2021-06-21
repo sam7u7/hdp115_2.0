@@ -8,9 +8,9 @@
 <h1>Formulario Crear Persona</h1>
 <form method="post">
     {%csrf_token%} 
-   {{form.as_p}}
+   {{form4.as_p}}
 
-   <button>Crear</button>
+   <button>Guardar</button>
 </form>
 <br>
 <a class="boton" href="{% url 'indexPersonas' %}">Volver</a>

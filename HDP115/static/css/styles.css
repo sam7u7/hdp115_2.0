@@ -10875,7 +10875,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   }
 }
 .boton{
-
+    text-decoration: none;
     text-align: center;
     padding: 0px;
     font-weight: 400;

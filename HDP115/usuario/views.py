@@ -2,7 +2,7 @@ from django.contrib.auth import forms
 from django.shortcuts import render, redirect
 from principal.models import *
 from django.http import request
-from .forms import AdminForm, PersonaForm, UsuarioForm
+from .forms import *
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -50,20 +50,20 @@ def indexEditarPersona(request):
 def editarPersona(request, idpersona):
     personas = persona.objects.get(idpersona = idpersona)
     if request.method == 'GET':
-        form= PersonaForm(instance=personas)
+        form4= EditarPersonaForm(instance=personas)
         contexto = {
-            'form':form
+            'form4':form4
         }
     else:
-        form = PersonaForm(request.POST, instance=personas)
+        form4 = EditarPersonaForm(request.POST, instance=personas)
         personas = persona.objects.all()
         contexto = {
             'personas': personas
         }
-        if form.is_valid():
-            form.save()
+        if form4.is_valid():
+            form4.save()
             return render(request, 'indexPersonas.html', contexto)
-    return render(request, 'crearPersona.html', contexto)
+    return render(request, 'editarPersona.html', contexto)
 
 #Mostrar personas A eliminar
 def indexEliminarPersona(request):

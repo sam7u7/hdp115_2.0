@@ -19,3 +19,8 @@ class AdminForm(forms.ModelForm):
     class Meta:
         model = administrador
         fields = ('__all__')
+#Formulario para editar persona
+class EditarPersonaForm(forms.ModelForm):
+    class Meta:
+        model = persona
+        fields = ('dui','nombre','apellido','genero','numeroTelefono','correoElectronico')
