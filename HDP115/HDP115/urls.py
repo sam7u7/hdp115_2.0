@@ -50,7 +50,6 @@ urlpatterns = [
     path('usuario/index', inicioUsuarios, name='indexUsuarios'),
     path('entregar/entregarPaquete/<int:idEntrega>', entregar, name='entregarPaquete'),
     path('entregar/indexEntrega', entregasPaquete, name='entregasPaquete')
-    
 ]
 
 urlpatterns += staticfiles_urlpatterns()
