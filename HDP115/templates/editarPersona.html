@@ -5,19 +5,14 @@
 {% block nombre %}Crear Personas{% endblock nombre %}
 <!-- Cuerpo -->
 {% block cuerpo %}
-<h1>Formulario Crear Persona</h1>
+<h1>Formulario Editar Persona</h1>
 <form method="post">
     {%csrf_token%} 
-   {{form.as_p}}
+   {{form4.as_p}}
 
-<<<<<<< HEAD
-   
-=======
-   <button>Crear</button>
->>>>>>> 03d989b51f235c6fd23b69fdd6de19852e9db330
+   <button>Guardar</button>
 </form>
 <br>
-<button type="button" class="btn btn-primary">ACEPTAR</button>
-<a class="btn btn-secondary" href="{% url 'indexPersonas' %}">VOLVER</a>
+<a class="boton" href="{% url 'indexPersonas' %}">Volver</a>
 
 {% endblock cuerpo %}
