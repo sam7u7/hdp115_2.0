@@ -10,9 +10,14 @@
     {%csrf_token%} 
    {{form.as_p}}
 
+<<<<<<< HEAD
+   
+=======
    <button>Crear</button>
+>>>>>>> 03d989b51f235c6fd23b69fdd6de19852e9db330
 </form>
 <br>
-<a class="boton" href="{% url 'indexPersonas' %}">Volver</a>
+<button type="button" class="btn btn-primary">ACEPTAR</button>
+<a class="btn btn-secondary" href="{% url 'indexPersonas' %}">VOLVER</a>
 
 {% endblock cuerpo %}

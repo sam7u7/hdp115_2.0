@@ -5,11 +5,12 @@
 {% block nombre %}Paquetes Alimentarios{% endblock nombre %}
 <!-- Cuerpo -->
 {% block cuerpo %}
-
-<h1>Iniciar sesión</h1>
-    <form class="container-fluid" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="boton" type="submit">Iniciar sesión</button>
-    </form>
+<center>
+    <h1>Iniciar sesión</h1>
+        <form class="container-fluid" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary" type="submit">INICIAR SESION</button>
+        </form>
+</center>
 {% endblock cuerpo %}

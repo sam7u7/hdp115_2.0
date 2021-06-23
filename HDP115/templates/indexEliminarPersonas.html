@@ -6,6 +6,9 @@
 <!-- Cuerpo -->
 {% block cuerpo %}
     <body>
+        <left>
+            
+        </left>
         <h1>Listado de Personas a Eliminar</h1>
         <table class="tablas">
             <thead>
@@ -31,12 +34,12 @@
                     <td>{{persona.numeroTelefono}}</td>
                     <td>{{persona.correoElectronico}}</td>
                     <td>{{persona.rol}}</td>
-                    <td><a href="{% url 'eliminarPersona' persona.idpersona %}">Eliminar </a></td>
+                    <td><a class=" btn btn-danger"href="{% url 'eliminarPersona' persona.idpersona %}">ELIMINAR</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <br>
-        <a class="boton" href="{% url 'indexPersonas' %}">Volver</a>
+        <a class="btn btn-light" href="{% url 'indexPersonas' %}">VOLVER</a>
     </body>
 {% endblock cuerpo %}

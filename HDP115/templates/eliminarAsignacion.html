@@ -29,7 +29,7 @@
                     <td>{{asignaciones.codigoZona}}</td>
                     <td>{{asignaciones.cantidad}}</td>
                     <td>{{asignaciones.fechaDeAsignacion}}</td>
-                    <td><a href="{% url 'eliminar' asignaciones.idcomprobante %}">Eliminar</a></td>
+                    <td><a class= "btn btn-danger" href="{% url 'eliminar' asignaciones.idcomprobante %}">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </tbody>

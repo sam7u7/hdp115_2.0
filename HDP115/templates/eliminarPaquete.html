@@ -14,6 +14,7 @@
                 <th>Id Administrador</th>
                 <th>Fecha de Expedición</th>
                 <th>Fecha de Caducidad</th>
+                <th>Opciones</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +24,7 @@
                     <th>{{ paquetes.idAdministrador }}</th>
                     <th>{{ paquetes.fechaDeExpedicion }}</th>
                     <th>{{ paquetes.fechaDeCaducidad }}</th>
-                    <td><a href="{% url 'eliminarPaquete' paquetes.codigo %}">Eliminar</a></td>
+                    <td><a class= "btn btn-danger" img src=" " href="{% url 'eliminarPaquete' paquetes.codigo %}">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </tbody>

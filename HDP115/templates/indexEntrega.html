@@ -34,7 +34,7 @@
                     {% else %}
                         <th>No Entregado</th>
                     {% endif %}
-                    <td><a href="{% url 'entregarPaquete' entregarPaquetes.idEntrega %}">Entregar</a></td>
+                    <td><a class="btn btn-success"href="{% url 'entregarPaquete' entregarPaquetes.idEntrega %}">ENTREGAR</a></td>
                     
                 </tr>
             {% endfor %}

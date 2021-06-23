@@ -5,24 +5,30 @@
 {% block nombre %}Paquetes Alimentarios{% endblock nombre %}
 <!-- Cuerpo -->
 {% block cuerpo %}
+
     <h1>Paquetes Alimentarios</h1>
     <table class="tablas">   
         <thead>
             <tr>
                 <th>Codigo Paquete </th>
                 <th>Id Administrador</th>
+                <th>Expedicion</th>
+                <th>Caducidad</th>
             </tr>
         </thead>
         <tbody>
-            {% for paquetes in paquetes  %}
+            {% for paquetes in paquetes%}
                 <tr>
                     <td>{{ paquetes.codigo }}</td>
                     <td>{{ paquetes.idAdministrador }}</td>
+                    <td>{{ paquetes.fechaDeExpedicion}}</td>
+                    <td>{{ paquetes.fechaDeCaducidad}}</td>    
                 </tr>
             {% endfor %}
         </tbody>
     </table>
     <br>
-    <a class="boton" href="{% url 'crearPaquete' %}">Nuevo</a>
-    <a class="boton" href="{% url 'eliminarPaqueteIndex' %}">Eliminar</a>  
+    <a class="btn btn-primary" href="{% url 'crearPaquete' %}">Nuevo</a>
+    <a class= "btn btn-danger" href="{% url 'eliminarPaqueteIndex' %}">ELIMINAR</a> 
+
 {% endblock cuerpo %}
