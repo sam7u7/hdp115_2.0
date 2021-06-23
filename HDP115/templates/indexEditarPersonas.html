@@ -7,7 +7,7 @@
 {% block cuerpo %}
     <body>
         <h1>Listado de Personas a Editar</h1>
-        <table class="tablas">
+        <table class="table">
             <thead>
                 <th>IDpersona</th>
                 <th>DUI</th>
@@ -31,12 +31,12 @@
                     <td>{{persona.numeroTelefono}}</td>
                     <td>{{persona.correoElectronico}}</td>
                     <td>{{persona.rol}}</td>
-                    <td><a href="{% url 'editarPersona' persona.idpersona %}">EDITAR </a></td>
+                    <td><a class="btn btn-secondary"href="{% url 'editarPersona' persona.idpersona %}">EDITAR </a></td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
         <br>
-        <a class="boton" href="{% url 'indexPersonas' %}">Volver</a>
+        <a class="btn btn-light" href="{% url 'indexPersonas' %}">VOLVER</a>
     </body>
 {% endblock cuerpo %}

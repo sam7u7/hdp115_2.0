@@ -10,9 +10,10 @@
     {%csrf_token%} 
    {{form.as_p}}
 
-   <button>Aceptar</button>
+   
 </form>
 <br>
-<a class="boton" href="{% url 'indexPersonas' %}">Volver</a>
+<button type="button" class="btn btn-primary">ACEPTAR</button>
+<a class="btn btn-secondary" href="{% url 'indexPersonas' %}">VOLVER</a>
 
 {% endblock cuerpo %}
