@@ -49,13 +49,6 @@ urlpatterns = [
     path('logout', LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('usuario/index', inicioUsuarios, name='indexUsuarios'),
     path('entregar/entregarPaquete/<int:idEntrega>', entregar, name='entregarPaquete'),
-<<<<<<< HEAD
-    path('entregar/indexEntrega', entregasPaquete, name='entregasPaquete'),
- 
-=======
-    path('entregar/indexEntrega', entregasPaquete, name='entregasPaquete')
-    
->>>>>>> 03d989b51f235c6fd23b69fdd6de19852e9db330
-]
+    path('entregar/indexEntrega', entregasPaquete, name='entregasPaquete')]
 
 urlpatterns += staticfiles_urlpatterns()
