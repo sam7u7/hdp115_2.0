@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models.signals import ModelSignal
 
 # Create your models here.
-
+#Modelo Persona
 class persona(models.Model):
     idpersona  = models.AutoField(primary_key=True)
     dui = models.CharField(max_length=9,unique=True)
@@ -16,7 +16,7 @@ class persona(models.Model):
 
     def __str__(self):
         return str(self.idpersona) 
-
+#Modelo Usuario
 class usuario(models.Model):
     idUsuario = models.AutoField(primary_key=True)
     idpersona = models.ForeignKey(persona, on_delete=models.CASCADE)
@@ -24,7 +24,7 @@ class usuario(models.Model):
 
     def __str__(self):
         return str(self.idUsuario)
-
+#Modelo administrador
 class administrador(models.Model):
     idAdministrador = models.AutoField(primary_key=True)
     idpersona = models.ForeignKey(persona, on_delete=models.CASCADE)
@@ -33,7 +33,7 @@ class administrador(models.Model):
     def __str__(self):
         return str(self.idAdministrador)
 
-
+#Modelo zona
 class zona(models.Model):
     codigoZona = models.AutoField(primary_key=True)
     departamento = models.CharField(max_length=50)
@@ -41,7 +41,7 @@ class zona(models.Model):
 
     def __str__(self):
         return str(self.codigoZona)
-
+#Modelo asignacion
 class asignacion(models.Model):
     idcomprobante = models.AutoField(primary_key=True)
     idAdmistrador = models.ForeignKey(administrador, on_delete=models.CASCADE)
@@ -54,7 +54,7 @@ class asignacion(models.Model):
         return str(self.idcomprobante)
     
 
-
+#Modelo Paquete Alimentarios
 class paqueteAlimentario(models.Model):
     codigo = models.AutoField(primary_key=True)
     idAdministrador = models.ForeignKey(administrador, on_delete=models.CASCADE)
@@ -63,7 +63,7 @@ class paqueteAlimentario(models.Model):
 
     def __str__(self):
         return str(self.codigo) 
-
+#Modelo entrega de Paquetes
 class entregaPaquete(models.Model):
     idEntrega = models.AutoField(primary_key=True)
     departamento = models.CharField(max_length=50)
