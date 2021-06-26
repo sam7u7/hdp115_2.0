@@ -52,43 +52,44 @@
         </div>
     </div>
     <script type="application/javascript">
+        
             Highcharts.chart('container', {
             chart: {
                 type: 'column'
             },
             title: {
-                text: 'Monthly Average Rainfall'
+                text: 'CANTIDAD DE PAQUETES ALIMENTARIOS ASIGNADOS'
             },
             subtitle: {
-                text: 'Source: WorldClimate.com'
+                text: 'MINISTERIO DE EL SALVADOR'
             },
             xAxis: {
                 categories: [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
+                    'Enero',
+                    'Febrero',
+                    'Marzo',
+                    'Abril',
+                    'Mayo',
+                    'Junio',
+                    'Julio',
+                    'Agosto',
+                    'Septiembre',
+                    'Octubre',
+                    'Noviembre',
+                    'Diciembre'
                 ],
                 crosshair: true
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Rainfall (mm)'
+                    text: 'cantidad'
                 }
             },
             tooltip: {
                 headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                 pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
                 useHTML: true
@@ -100,9 +101,10 @@
                 }
             },
             series: [ {
-                name: 'El Salvador',
-                data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
+                name: 'total paquetes',
+                showInLegend : false,
+                colorByPoint : true,
+                data: [3920, 1040, 1234, 5674, 1003, 4004, 2050, 9004, 3900, 2034, 2990, 2040]
             }]
         });
     </script>

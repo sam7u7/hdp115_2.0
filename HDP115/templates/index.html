@@ -20,8 +20,9 @@
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                
+                {% if user.is_authenticated%}
                 <div class="sidebar-heading border-bottom bg-light">{% block nombre %}Distribución de Paquetes Alimentarios{% endblock nombre %}<img src="{% static 'img/logo.png'%}" width="50px" height="50px"/></div>
+                {% endif %}
                 <div class="list-group list-group-flush">
                     {%if perms.usuario.view_usuario %}
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'indexPersonas' %}">Usuarios</a>
@@ -43,12 +44,16 @@
                 <!-- Top navigation-->
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                     <div class="container-fluid">
+                        {% if user.is_authenticated%}
                         <button class="btn btn-primary" id="sidebarToggle">Desplegar Menú</button>
+                        {% endif %}
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                                 <img src="{% static 'img/logoUes.jpg'%}" width="70px" height="70px"/>
+                                {% if user.is_authenticated%}
                                 <li class="nav-item active"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
+                                {% endif %}
                                 {% if user.is_authenticated%}
                                 <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a></li>
                                 {% else %}
@@ -70,8 +75,8 @@
                     {% endif %}
                     {% block cuerpo %}
                     <h1>Distribucion de Paquetes Alimentarios</h1>
-                    <p>Esta Aplicacion fue creada con la finalidad de crear y administrar la distribución de los paquetes alimentarios en el pais de El Salvador, </p>
-                    <p>Para brindar ayuda a las personas afectadas en esta pandemia del covid-19 </p>
+                    <p>Aplicacion creada con la finalidad de registrar, controlar y administrar la distribución de los paquetes alimentarios en el pais de El Salvador,
+                        para brindar ayuda a las personas afectadas ante la pandemia del covid-19 </p>
                     <div align="center" > <img src="{% static 'img/El Salvador.gif'%}" /></div>
                     {% endblock cuerpo %}
                 </div>
