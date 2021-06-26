@@ -5,6 +5,8 @@ from principal.models import asignacion
 from .form import  asignacionForm
 import datetime
 from django.http import JsonResponse
+from django.views.generic import TemplateView
+from django.db.models.functions import Coalesce
 
 # Create your views here.
 def asignacionIndex(request):
@@ -42,22 +44,18 @@ def eliminarAsignacionIndex(request):
     }
     return render(request,'eliminarAsignacion.html',contexto)
 
+class DashboardView(TemplateView):
+    template_name = 'indexAsignacion.html'
+    def getCantidad():
+        data=[1,2,3,4,5,6,7,8,9,10,11,12]
+        
+        return data
 
-def getCantidad(self):
-    data=[]
-    try:
-        año = datetime.now().year
-        for i in range (0,12):
-            asignacion.objects.filter(fechaDeAsignacion__year=año, fechaDeAsignacion__month=i).aggregate(r=Coalsce(sum('cantidad',0)).get('r'))
-            data.append(int(cantidad))
-    except:
-        pass
-    return data
-
-def get_context_data(self, **kwargs):
-    contexto = super().get_context_data(**kwargs)
-    contexto['getCantidad'] = self.getCantidad()
-    return contexto
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['panel'] = 'Panel de Grafica'
+        contexto['Cantidad'] = self.getCantidad()
+        return contexto
 
 
 
